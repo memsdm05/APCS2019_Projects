@@ -39,6 +39,10 @@ public class SubWordFinder implements WordFinder {
 
         } catch (Exception e) {System.err.println("Could not load file: " + e);}
 
+        for (ArrayList<String> strings : dictionary) {
+            Collections.sort(strings);
+        }
+
     }
 
 
