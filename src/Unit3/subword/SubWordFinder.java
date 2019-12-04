@@ -65,7 +65,7 @@ public class SubWordFinder implements WordFinder {
         String root2;
         for (ArrayList<String> bucket : dictionary) {
             for (String word : bucket) {
-                for (int i = 1; i < word.length() - 1; i++) {
+                for (int i = 2; i < word.length() - 1; i++) {
                     root1 = word.substring(0, i);
                     root2 = word.substring(i);
                     if (inDictionary(root1) && inDictionary(root2)) {
