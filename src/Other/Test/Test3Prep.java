@@ -54,15 +54,31 @@ public class Test3Prep {
      *  When writing notInVocab, you should call the countNotInWordBank
      *  method and have it work as expected, regardless of what you wrote to
      *  define that method.
-     *  @param wordArray, an array of String objects
+//     *  @param wordArray, an array of String objects
      *  @return a String array of all the words in wordArray not found in
      *  usedWords
      */
-    public String[] notInVocab(String[] wordArray)	{
-        String[] notFounds = new String[countNotInWordBank(wordArray)];
-        return notFounds;
-    }
+//    public String[] notInVocab(String[] wordArray)	{
+//        String[] notFounds = new String[countNotInWordBank(wordArray)];
+//        return notFounds;
+//    }
 
+    public static void fiveByFive() {
+        int n = 5;
+        int[][] m = new int[n][n];
+        for(int j = 0; j < n; j++)	{
+            for(int k = j; k < n; k++)	{
+                m[j][k] = k + 1;
+                m[k][j] = k - 1;
+            }
+        }
+        for (int[] ints : m) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
         Test3Prep app = new Test3Prep();
@@ -79,20 +95,7 @@ public class Test3Prep {
         String byeBye = animals.set(2, "groundhog");
         animals.add(1, "mouse");
         System.out.println(animals.get(2) + " and " + animals.get(3) + " are better than " +  byeBye);
-
-        int n = 5;
-        int[][] m = new int[n][n];
-        for(int j = 0; j < n; j++)	{
-            for(int k = j; k < n; k++)	{
-                m[j][k] = k + 1;
-                m[k][j] = k - 1;
-            }
-        }
-        for (int[] ints : m) {
-            for (int anInt : ints) {
-                System.out.print(anInt + " ");
-            }
-            System.out.println();
-        }
+        fiveByFive();
+//        System.out.println(Arrays.toString(app.notInVocab(new String[]{"music", "apple", "pineapple"})));
     }
 }
