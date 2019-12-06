@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.*;
 
 public class Test3Prep {
-    String[] usedWords = {"music", "musical", "musically", "meditation", "pineapple"};
+    public String[] usedWords = {"music", "musical", "musically", "meditation", "pineapple"};
 
     /**
      * Returns true if sub is in str, false otherwise. Works
@@ -38,7 +38,7 @@ public class Test3Prep {
         for (String word : usedWords) {
             boolean found = false;
             for (String test : wordArray) {
-                if (!word.equals(test)) {
+                if (word.equals(test)) {
                     found = true;
                     break;
                 }
@@ -58,10 +58,31 @@ public class Test3Prep {
      *  @return a String array of all the words in wordArray not found in
      *  usedWords
      */
-//    public String[] notInVocab(String[] wordArray)	{
-//        String[] notFounds = new String[countNotInWordBank(wordArray)];
-//        return notFounds;
-//    }
+    public String[] notInVocab(String[] wordArray)	{
+        String[] notFounds = new String[countNotInWordBank(wordArray)];
+        int count = 0;
+        int index = 0;
+        for (String word : usedWords) {
+            boolean found = false;
+            for (int i = 0; i < wordArray.length; i++) {
+                index = i;
+                if (word.equals(wordArray[i])) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                notFounds[count] = wordArray[index];
+                count++;
+            }
+
+        }
+//        return count;
+        return notFounds;
+    }
+
+
+
 
     public static void fiveByFive() {
         int n = 5;
@@ -96,6 +117,8 @@ public class Test3Prep {
         animals.add(1, "mouse");
         System.out.println(animals.get(2) + " and " + animals.get(3) + " are better than " +  byeBye);
         fiveByFive();
-//        System.out.println(Arrays.toString(app.notInVocab(new String[]{"music", "apple", "pineapple"})));
+        String[] arr = {"music", "apple", "pineapple"};
+        System.out.println(Arrays.toString(app.notInVocab(arr)));
+        System.out.println(app.countNotInWordBank(arr));
     }
 }
