@@ -28,7 +28,7 @@ public class ISBNValidator {
         int i = 0, k = 0;
         String next;
         try {
-            Scanner file = new Scanner(new File("data/isbn_files/isbn2.dat/"));
+            Scanner file = new Scanner(new File("data/isbn_files/isbn1.dat/"));
             while (file.hasNextLine()) {
                 next = file.nextLine();
                 if (isValidISBN(next)) {
@@ -56,14 +56,14 @@ public class ISBNValidator {
      */
     public boolean isValidISBN(String isbn) {
         isbn = isbn.replaceAll("-", "");
-        String first3 = isbn.substring(0, 3);
+//        String first3 = isbn.substring(0, 4);
         int checksum = 0;
         /* Mr. Cochran I have a real problem with the "978" and "979" checks. First off, it has no
         future proofing and will be bypassed once new leadings numbers are added. Two, if you want to
         make it update you would need it to have some kind of web polling to get it uodated. Don't worry,
         even I'm not THAT crazy.
          */
-        if (isbn.length() != 13 && !first3.equals("978") && !first3.equals("979"))
+        if (isbn.length() != 13 /* && !first3.equals("978") && !first3.equals("979")*/)
             return false;
 
         for (int i = 0; i < 13; i++) {
