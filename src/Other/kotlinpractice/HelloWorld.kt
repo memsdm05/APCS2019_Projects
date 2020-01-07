@@ -26,4 +26,5 @@ fun main(args: Array<String>) {
         for (char in 1..lineDist.get(i))
             print("*")
         println()
+    }
 }
