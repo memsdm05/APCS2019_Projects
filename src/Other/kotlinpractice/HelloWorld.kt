@@ -20,11 +20,15 @@ fun smoothArrayGen(arr: ArrayList<Int>, n: Int, rep: Int, max: Int) {
 
 
 fun main(args: Array<String>) {
-    smoothArrayGen(lineDist,20,1, 15)
+    smoothArrayGen(lineDist,20,1, 5)
+    smoothArrayGen(lineWait,20,1, 1000)
+
     println("Loading...")
     for (i in 0..lineDist.size-1) {
-        for (char in 1..lineDist.get(i))
-            print("*")
-        println()
+        for (char in 1..lineDist.get(i)) {
+            print("█")
+        }
+        Thread.sleep(lineWait.get(i).toLong())
     }
+    println("\ndone")
 }
