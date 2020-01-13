@@ -37,7 +37,7 @@ public class Chap10Stuff {
 
 
     public static void main(String[] args) {
-        Chap10Stuff app1 = new Chap10Stuff(0, 0);
+        Chap10Stuff app1 = new Chap10Stuff(1, 0);
         Chap10Stuff app2 = new Chap10Stuff(12, "hotdog", true);
         System.out.println(app2);
     }
