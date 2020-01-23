@@ -6,11 +6,11 @@ public abstract class Coin {
     public abstract String getName(); // returns "penny", "nickel", "half dollar", "dollar"
 
     public String getPluralName() { // define in the class: pennies, dimes...
-        switch(getName()) {
-            case "penny":
-                return "pennies";
-            default:
-                return getName() + "s";
+        if (getName() == "penny") {
+            return "pennies";
+        }
+        else {
+            return getName() + "s";
         }
     }
 
