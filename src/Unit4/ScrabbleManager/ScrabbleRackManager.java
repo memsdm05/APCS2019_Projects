@@ -3,11 +3,16 @@ package Unit4.ScrabbleManager;
 import java.io.File;
 import java.util.*;
 
+/**
+ * Scrabble Rack Manager
+ * @author Ben Browner
+ * @since 1/21/20
+ */
+
 public class ScrabbleRackManager {
     private ArrayList<String> tileRack;
     private ArrayList<String> dict;
     private int tileLen;
-    private int comp;
 //    private ArrayList<ArrayList<ArrayList<String>>> dict;
     // Buckets of first letters(Buckets of length(dict))
 
@@ -51,9 +56,7 @@ public class ScrabbleRackManager {
     private boolean isValid(String s) {
         ArrayList<String> temp =  new ArrayList<String>(tileRack);
         for (int i = 0; i < s.length(); i++) {
-            comp++;
             if (!temp.remove(s.substring(i, i + 1)) && !temp.remove(" ")) {
-                comp++;
                 return false;
             }
         }
@@ -64,6 +67,7 @@ public class ScrabbleRackManager {
      * builds and returns an ArrayList of String objects that are values pulled from
      * the dictionary/database based on the available letters in the user's tile
      * rack
+     * @return all anagrams of tileRack from Scrabble Words, ArrayList<String>
      */
 
     public ArrayList<String> getPlaylist() {
@@ -73,7 +77,7 @@ public class ScrabbleRackManager {
             String next;
             while (file.hasNextLine()) {
                 next = file.nextLine().toUpperCase();
-                if (next.length() <= tileRack.size()) {
+                if (next.length() <= tileLen) {
                     if (isValid(next)) {
                         valid.add(next + ((next.length() == tileRack.size()) ? "*" : ""));
                     }
@@ -110,14 +114,13 @@ public class ScrabbleRackManager {
         if (!pop) System.out.println("Sorry, NO words can be played from those tiles.");
         System.out.println("\n* denotes BINGO");
     }
-    /** main method for the class; use only 3 command lines in main */
+    /** main method for the class; use only 3 command lines in main
+     * @param args
+     *
+     */
     public static void main(String[] args){
-        long tick = System.currentTimeMillis();
         ScrabbleRackManager app = new ScrabbleRackManager();
         app.printRack();
         app.printMatches();
-        long tock = System.currentTimeMillis();
-        System.out.println(tock-tick);
-        System.out.println(app.comp);
     }
 }
