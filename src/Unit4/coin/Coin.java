@@ -1,17 +1,29 @@
 package Unit4.coin;
 
+
+
 public abstract class Coin {
-    public abstract double getValue(); // returns .01, .05, .5, 1.0 based on implementing class object's value
+    /**
+     * returns .01, .05, .5, etc based on implementing class object's value
+     * @return value of coin, double
+     */
+    public abstract double getValue();
 
-    public abstract String getName(); // returns "penny", "nickel", "half dollar", "dollar"
+    /**
+     * returns "penny", "nickel", etc
+     * @return name of coin, String
+     */
+    public abstract String getName(); //
 
-    public String getPluralName() { // define in the class: pennies, dimes...
-        if (getName() == "penny") {
+    /**
+     * define in the class: pennies, dimes...
+     * @return plural noun of coin, String
+     */
+    public String getPluralName() {
+        if (getName() == "penny") // pennies are the only outlier
             return "pennies";
-        }
-        else {
+        else
             return getName() + "s";
-        }
     }
 
 }
