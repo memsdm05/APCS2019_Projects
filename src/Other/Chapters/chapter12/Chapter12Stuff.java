@@ -7,12 +7,12 @@ public class Chapter12Stuff {
         System.out.println(diploma1);
         System.out.println();
 
-        Diploma diploma2 = new DiplomaWithHonors("Emilcel", "Bitcoin Investment");
+        Diploma diploma2 = new DiplomaWithHonors("Ben", "being cool");
         System.out.println(diploma2);
         System.out.println();
 
-        Haiku poem1 = new Haiku();
-        Limerick poem2 = new Limerick();
+        Poem poem1 = new Haiku();
+        Poem poem2 = new Limerick();
 
         poem1.printRhythm();
         System.out.println();

@@ -1,6 +1,10 @@
 package Unit4.coin;
 
-
+/**
+ * Coin abstract class (organizes all coin concrete classes)
+ * @author Ben Browner
+ * @since 1/30/19
+ */
 
 public abstract class Coin {
     /**
@@ -20,7 +24,7 @@ public abstract class Coin {
      * @return plural noun of coin, String
      */
     public String getPluralName() {
-        if (getName() == "penny") // pennies are the only outlier
+        if (getName().equals("penny")) // pennies are the only outlier
             return "pennies";
         else
             return getName() + "s";
