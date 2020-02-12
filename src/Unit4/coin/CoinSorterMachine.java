@@ -109,5 +109,5 @@ public class CoinSorterMachine{
         app.depositCoins();
         app.printDepositSummary();
     }
-// end of class CoinSorterMachine
+    // end of class CoinSorterMachine
 }
