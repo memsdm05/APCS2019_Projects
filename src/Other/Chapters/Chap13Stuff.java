@@ -26,8 +26,6 @@ public class Chap13Stuff {
                 System.out.println("#");
             }
 
-
-
             return p;
         }
     }
