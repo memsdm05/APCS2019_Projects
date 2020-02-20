@@ -12,7 +12,7 @@ public class Chap13Stuff {
         }
         return str;
     }
-
+    // return (this.name.compareTo(other.name) == 0)? ((this.ID - other.ID == 0)? (new Double(this.cost).compareTo(other.cost) == 0)? 0 : new Double(this.cost).compareTo(other.cost) : this.ID - other.ID) : this.name.compareTo(other.name)
     public int power3(int n) {
         if (n==0)
             return 1;
