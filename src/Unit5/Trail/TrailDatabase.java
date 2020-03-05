@@ -12,12 +12,14 @@ import java.util.Scanner;
 
 public class TrailDatabase {
     private ArrayList<Waypoint> myPoints;
+    private long delta;
 
     /**
      * Initializes myPoints
      */
     public TrailDatabase() {
         myPoints = new ArrayList<Waypoint>();
+        delta = 0;
     }
 
     /**
@@ -51,10 +53,11 @@ public class TrailDatabase {
      * Prints myPoints using Waypoint's toString method.
      */
     public void printDatabase() {
-        System.out.println("Feature, Name, State, Latitude, Longitude, Dist To Katahdin, Dist To Springer, Elevation");
+        System.out.println("Feature\tName\tState\tLatitude\tLongitude\tDist To Katahdin\tDist To Springer\tElevation");
         for (Waypoint myPoint : myPoints) {
             System.out.println(myPoint);
         }
+        System.out.println(delta);
     }
 
     /**
@@ -64,14 +67,17 @@ public class TrailDatabase {
     public void sortDB(WaypointComparator wc) {
         WaypointSort sort = new WaypointSort(wc);
         Waypoint[] wp = new Waypoint[myPoints.size()];
+        long startTime = System.nanoTime();
         for (int i = 0; i < wp.length; i++) {
             wp[i] = myPoints.get(i);
         }
-        sort.startSort(wp);
+        sort.startSort(wp, 5);
         myPoints.clear();
         for (Waypoint waypoint : wp) {
             myPoints.add(waypoint);
         }
+        long endTime = System.nanoTime();
+        delta = endTime - startTime;
     }
 
     /**
@@ -98,7 +104,7 @@ public class TrailDatabase {
             int opt = -1;
             if (run) {
                 for (int i = 0; i < options.length; i++)
-                    if (input.equals(options[i]))
+                    if (input.equalsIgnoreCase(options[i]))
                         opt = i;
                 if (opt == -1) {
                     System.out.println("Invalid search term");

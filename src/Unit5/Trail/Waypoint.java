@@ -69,6 +69,6 @@ public class Waypoint{
      * @return a melody of waypoint elements
      */
     public String toString() {
-        return type+", "+name+", "+state+", "+lat+", "+lon+", "+distToK+", "+distToS+", "+elevation;
+        return type+"\t"+name+"\t"+state+"\t"+lat+"\t"+lon+"\t"+distToK+"\t"+distToS+"\t"+elevation;
     }
 }
